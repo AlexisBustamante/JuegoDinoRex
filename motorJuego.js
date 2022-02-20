@@ -71,10 +71,15 @@ function Start() {
     textoScore = document.querySelector(".score");
     dino = document.querySelector(".dino");
     document.addEventListener("keydown", HandleKeyDown);
+    document.addEventListener("click", HandleClick);
 
     button = document.getElementById("reiniciar");
     button.addEventListener("click", reiniciar);
 
+}
+
+function HandleClick(ev) {
+        Saltar();
 }
 
 function reiniciar(ev) {
@@ -95,13 +100,15 @@ function Update() {
     velY -= gravedad * deltaTime;
 }
 
-function HandleKeyDown(ev){
+function HandleKeyDown(ev) {
+    console.log(ev);
     if(ev.keyCode == 32){
         Saltar();
     }
 }
 
-function Saltar(){
+function Saltar() {
+    
     if(dinoPosY === sueloY){
         saltando = true;
         velY = impulso;
